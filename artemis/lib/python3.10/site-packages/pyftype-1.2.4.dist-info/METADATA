@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: pyftype
+Version: 1.2.4
+Summary: 类型检测
+Home-page: https://gitee.com/kin9-0rz/pyftype
+License: MIT
+Author: kin9-0rz
+Author-email: kin9-0rz@outlook.com
+Requires-Python: >=3.7
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Project-URL: Repository, https://gitee.com/kin9-0rz/pyftype
+Description-Content-Type: text/x-rst
+
+
+pyftype
+=======
+
+
+.. image:: https://img.shields.io/pypi/v/pyftype?style=for-the-badge
+   :target: https://img.shields.io/pypi/v/pyftype?style=for-the-badge
+   :alt: PyPI
+ 
+.. image:: https://img.shields.io/pypi/pyversions/pyftype?style=for-the-badge
+   :target: https://img.shields.io/pypi/pyversions/pyftype?style=for-the-badge
+   :alt: PyPI - Python Version
+ 
+.. image:: https://img.shields.io/pypi/l/pyftype?style=for-the-badge
+   :target: https://img.shields.io/pypi/l/pyftype?style=for-the-badge
+   :alt: PyPI - License
+ 
+.. image:: https://img.shields.io/pypi/status/pyftype?style=for-the-badge
+   :target: https://img.shields.io/pypi/status/pyftype?style=for-the-badge
+   :alt: PyPI - Status
+ 
+.. image:: https://img.shields.io/pypi/dw/pyftype?style=for-the-badge
+   :target: https://img.shields.io/pypi/dw/pyftype?style=for-the-badge
+   :alt: PyPI - Downloads
+
+
+一个类型检测库。
+
+特性
+~~~~
+
+
+#. 类型检测完全模块化，需要检测新的类型，直接参考modules中的检测，编写即可。
+#. 主要面向逆向工程方向的类型检测，也支持一般类型检测。
+
+安装
+~~~~
+
+.. code-block::
+
+   ❯ pip install pyftype
+
+   ❯ pyftype -h
+   usage: pyftype [-h] [-V] p
+
+   positional arguments:
+     p              path
+
+   options:
+     -h, --help     show this help message and exit
+     -V, --version  show program's version number and exit
+
+   ❯ pyftype Makefile
+   File extension: txt
+   File MIME type: application/txt
+
+用法
+~~~~
+
+.. code-block:: python
+
+   import pyftype
+
+   # file
+   f = open(path, "rb")
+   data = f.read()
+   kind = pyftype.guess(data)
+
+   # path
+   kind = pyftype.guess(path)
+
+   # bytes
+   buf = bytearray([0xFF, 0xD8, 0xFF, 0x00, 0x08])
+   kind = pyftype.guess(buf)
+
+具体参考examples目录
+
+参考
+~~~~
+
+
+* https://github.com/h2non/filetype.py
+* https://github.com/kin9-0rz/cigam
+
