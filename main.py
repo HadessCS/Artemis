@@ -243,6 +243,8 @@ if sys.argv[1:]:
 		print('infra')
 		# please complete this
 		whoise_infra(path)
+	if 'help' in script_parameters:
+		show_banner()
 	else:
 		pass
 	
