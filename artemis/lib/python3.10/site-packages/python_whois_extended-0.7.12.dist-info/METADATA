@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: python-whois-extended
+Version: 0.7.12
+Summary: Python module/library for retrieving WHOIS information of domains. Able to extract data for all the popular TLDs (com, net, org, uk, pl, ru, lv, jp, co_jp, de, at, eu, biz, info, name, us, co, me, be, nz, cz, it, fr, kg, vc, fm, tv, edu, ca)
+Home-page: https://github.com/gen1us2k/python-whois/
+Author: Andrew Minkin and DDarko.org
+Author-email: minkin.andrew@gmail.com, ddarko@ddarko.org
+License: MIT http://www.opensource.org/licenses/mit-license.php
+Keywords: Python,WHOIS,TLD,domain,expiration,registrar
+Platform: any
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+WHOIS
+=============
+
+Python module/library for retrieving WHOIS information of domains.
+
+By DDarko  http://ddarko.org/
+
+
+Features
+=============
+
+ * Python wrapper for Linux "whois" command
+ * simple interface to access parsed WHOIS data for a given domain
+ * able to extract data for all the popular TLDs (com, net, org, uk, pl, ru, рф, lv, jp, co_jp, de, at, eu, biz, info, online, center, support, name, us, co, me, be, nz, cz, it, fr, kg, vc, fm, tv, edu, ca, pw, bid, host, online, party, pro, review, site, space, top, website, win)
+ * query a WHOIS server directly instead of going through an intermediate web service like many others do
+ * works with Python 2.4+ and Python 3.x
+ * all dates as datetime objects
+ * possibility to cache results
+
+
+Usage example
+=============
+
+>>> import whois
+>>> domain = whois.query('google.com')
+
+>>> print(domain.__dict__)
+{
+	'expiration_date': datetime.datetime(2020, 9, 14, 0, 0),
+	'last_updated': datetime.datetime(2011, 7, 20, 0, 0),
+	'registrar': 'MARKMONITOR INC.',
+	'name': 'google.com',
+	'creation_date': datetime.datetime(1997, 9, 15, 0, 0)
+}
+
+>>> print(domain.name)
+google.com
+
+>>> print(domain.expiration_date)
+2020-09-14 00:00:00
+
+
