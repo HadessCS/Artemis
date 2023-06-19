@@ -29,4 +29,10 @@ Brought to you by:
 	 
 ```
 
+Example Usage:
 
+1.Find infra(domain and ip) in sample4.apk and set output result into out.txt
+
+```
+python3 main.py --path sample4.apk --infra domain,ip --output out.txt
+```
