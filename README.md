@@ -16,18 +16,17 @@ Brought to you by:
 [HADESS](https://hadess.io) performs offensive cybersecurity services through infrastructures and software that include vulnerability analysis, scenario attack planning, and implementation of custom integrated preventive projects. We organized our activities around the prevention of corporate, industrial, and laboratory cyber threats.
 
 
-## Development
-
-1. python3 -m venv artemis
-2. source artemis/bin/activate
-3. python main.py --help
-
 
 ## Command Line Options
 ```
           
 	  --help                       Display help
-	  --version                    Display version
+	  --path  					   Required path of apk file
+	  --manifest  				   Display manifest informations
+	  --infra  					   Find all infra addresses included ip,domain ex. --infra ip,domain
+	  --whoise  				   Whoise all infra included ip,domain ex. --whoise ip,domain
+	  --output  				   Set output files ex. --output out.txt
 	 
 ```
+
 
