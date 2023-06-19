@@ -335,13 +335,6 @@ def option_1():
     apk_path = input("Input APK Path: ")
     manifest(apk_path)
 
-def option_2():
-    print("You selected Option 2")
-
-def option_3():
-    print("You selected Option 3")
-
-
 
 def find_parameters(script_args):
     parameters = {}
@@ -465,10 +458,6 @@ else:
         apk_path = input("Input APK File Path: ")
         manifest(apk_path)
         exit_script()
-    elif selected_option == "2":
-        option_2()
-    elif selected_option == "3":
-        option_3()
     else:
         print("Invalid option selected!")
     
