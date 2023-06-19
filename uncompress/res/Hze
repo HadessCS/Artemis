@@ -1,0 +1,371 @@
+20:11358 AOSP rastermill
+11389:11361 Abseil
+22776:16008 Android SDK Platforms
+38810:10220 Android Support Tools
+49067:10695 Android multidex support library
+59792:10692 AndroidX Core Performance
+70518:10695 AndroidX activity ktx library
+81243:10695 AndroidX activity library
+91983:10695 AndroidX animated vectordrawable library
+102723:10691 AndroidX annotation experimental library
+113450:10691 AndroidX annotation jvm library
+124173:10695 AndroidX annotation library
+134899:10695 AndroidX appcompat library
+145635:10693 AndroidX appcompat resources library
+156374:10694 AndroidX architecture core common library
+167115:10694 AndroidX architecture core runtime library
+177843:10694 AndroidX architecture library
+188578:10694 AndroidX asynclayoutinflater library
+199303:10695 AndroidX biometric library
+210027:10695 AndroidX browser library
+220755:10695 AndroidX camera core library
+231488:10695 AndroidX camera lifecycle library
+242217:10694 AndroidX camera video library
+252944:10692 AndroidX camera view library
+263670:10694 AndroidX camera2 base library
+274394:10695 AndroidX cardview library
+285125:10695 AndroidX collection jvm library
+295860:10695 AndroidX concurrent futures library
+306598:10694 AndroidX constraintlayout core library
+317330:10694 AndroidX constraintlayout library
+328063:10695 AndroidX coordinatorlayout library
+338788:10695 AndroidX core ktx library
+349509:10695 AndroidX core library
+360239:10695 AndroidX cursoradapter library
+370966:10695 AndroidX customview library
+381710:10695 AndroidX customview poolingcontainer library
+392439:10695 AndroidX documentfile library
+403168:10695 AndroidX drawerlayout library
+413901:10695 AndroidX dynamicanimation library
+424628:27410 AndroidX emoji base library
+452071:10693 AndroidX emoji2 base library
+462805:10693 AndroidX emoji2 views_helper library
+473533:10695 AndroidX exifinterface library
+484262:10693 AndroidX fragment ktx library
+494985:10695 AndroidX fragment library
+505714:10693 AndroidX interpolator library
+516442:10695 AndroidX legacy coreui library
+527175:10695 AndroidX legacy coreutils library
+537909:10695 AndroidX legacy preference library
+548636:10695 AndroidX legacy v13 library
+559362:10695 AndroidX legacy v4 library
+570101:10694 AndroidX lifecycle common java8 library
+580833:10694 AndroidX lifecycle common library
+591569:10694 AndroidX lifecycle extensions library
+602312:10693 AndroidX lifecycle livedata core ktx library
+613049:10693 AndroidX lifecycle livedata ktx library
+623782:10694 AndroidX lifecycle livedata library
+634520:10694 AndroidX lifecycle livedatacore library
+645256:10694 AndroidX lifecycle process g3 library
+655993:10694 AndroidX lifecycle runtime ktx library
+666726:10694 AndroidX lifecycle runtime library
+677459:10694 AndroidX lifecycle service library
+688198:10694 AndroidX lifecycle viewmodel ktx library
+698933:10694 AndroidX lifecycle viewmodel library
+709679:10693 AndroidX lifecycle viewmodel savedstate library
+720400:10695 AndroidX loader library
+731138:10693 AndroidX localbroadcastmanager library
+741863:10695 AndroidX media base library
+752591:10695 AndroidX mediarouter library
+763329:10693 AndroidX navigation common ktx library
+774061:10693 AndroidX navigation common library
+784795:10693 AndroidX navigation fragment library
+795532:10693 AndroidX navigation runtime ktx library
+806265:10693 AndroidX navigation runtime library
+816993:10695 AndroidX paging common library
+827724:10695 AndroidX paging runtime library
+838455:10695 AndroidX paging rxjava2 library
+849179:10695 AndroidX palette library
+859906:10695 AndroidX preference library
+870628:10695 AndroidX print library
+881375:10174 AndroidX privacysandbox adservices java library
+891596:10174 AndroidX privacysandbox adservices library
+901809:10695 AndroidX recyclerview base library
+912537:10694 AndroidX room common library
+923266:10695 AndroidX room compiler library
+933993:10695 AndroidX room guava library
+944718:10693 AndroidX room ktx library
+955447:10695 AndroidX room migration library
+966176:10694 AndroidX room runtime library
+976904:10695 AndroidX room rxjava2 library
+987631:10689 AndroidX savedstate library
+998359:10695 AndroidX slidingpanelayout library
+1009092:10691 AndroidX sqlite framework library
+1019811:10695 AndroidX sqlite library
+1030543:10693 AndroidX startup runtime library
+1041276:10695 AndroidX swiperefreshlayout library
+1052000:10694 AndroidX tracing library
+1062726:10691 AndroidX transition library
+1073441:10695 AndroidX v7 library
+1084177:10693 AndroidX vectordrawable base library
+1094911:10695 AndroidX versionedparcelable library
+1105637:10695 AndroidX viewpager library
+1116364:10695 AndroidX viewpager2 library
+1127087:10695 AndroidX webkit library
+1137826:10694 AndroidX window extensions core library
+1148559:10695 AndroidX window extensions library
+1159287:10695 AndroidX window java library
+1170010:10695 AndroidX window library
+1180743:10173 AndroidX work runtime ktx library
+1190950:10173 AndroidX work runtime library
+1201142:1096 Animal Sniffer
+1202262:11358 Apache Commons Lang
+1213647:11358 Apache Commons Logging
+1225027:10173 Apache HttpClient
+1235220:10173 Apache HttpCore
+1245417:10677 Auth client library
+1256105:550 Base64
+1256669:12529 BoringSSL
+1269209:1084 Brotli
+1270327:1892 Checker Framework Annotations
+1272251:1537 Chrome Certificate Verifier
+1273808:11337 Closure Library
+1285170:10173 Closure Library GIOS
+1295357:11358 Conscrypt
+1306726:733126 Cronet
+2039870:11358 Crunchy Crypt
+2051239:11358 Dagger
+2062613:1320 Darts-clone
+2063944:11358 Dimsum
+2075314:65383 Eigen 3
+2140707:14169 Envoy
+2154892:11357 Error Prone
+2166263:12539 ExoPlayer
+2178823:14962 Expat XML Parser
+2193794:1131 FP16
+2194935:1117 FXdiv
+2196065:15355 Filament
+2211433:11357 Firebase
+2222806:11358 FlatBuffers
+2234174:4771 Glide
+2238961:11358 Google Auto
+2250347:11357 Google HTTP Java Client
+2261735:11356 Google HTTP client library
+2273118:11358 Google Toolbox for Mac
+2284485:11358 Gson
+2295858:11358 Guava JDK5
+2307231:11362 Guava JDK7
+2318603:11370 Guice
+2329984:14115 Halide
+2344109:22781 ICU4C
+2366900:37209 ICU4J
+2404120:81008 J2ObjC
+2485140:11358 JSR 250
+2496510:1602 JSR 305
+2498124:11365 JSR 330
+2509502:11358 JSpecify
+2520879:1364 JavaScriptCore
+2522260:11358 Joda-Convert
+2533632:11358 Joda-Time
+2545016:11307 JsInterop Annotations
+2556350:11358 Khronos OpenGL headers
+2567721:1513 Kiss FFT
+2569245:105133 Kotlin
+2674400:11357 Kotlin coroutines
+2685768:2266 LAPACK
+2688043:77069 LLVM
+2765123:11356 Lottie
+2776491:11357 Lullaby
+2787884:11358 Material Components for Android
+2799256:12331 MediaPipe
+2811599:1084 Mesa 3D
+2812711:11358 Mobile Filter Framework
+2824081:4814 NCurses
+2828921:1732 Nano Protocol Buffers
+2830664:898 Nanopb
+2831570:1466 Ogg
+2833070:1487 Ogg Opus audio parser/decoder
+2834584:1470 Ogg Vorbis audio codec
+2836063:11358 Okio
+2847435:185 Ooura FFT
+2847632:881 OpenCTM
+2848524:23289 OpenCV
+2871828:11358 OpenCensus
+2883207:11358 OpenCensus Proto
+2894603:3873 OpenGL Extension Wrangler Library
+2898499:2298 OpenGL Mathematics
+2900824:1503 OpenGL Utility Library
+2902348:3184 Opus audio codec
+2905540:5345 PNG
+2910906:11357 PerfMark library
+2922277:4057 Portaudio
+2926354:11358 Proto Converter
+2937733:1732 Protocol Buffers
+2939495:1732 Protocol Buffers for Java
+2941236:1559 QUIC
+2942803:1558 RE2
+2944374:11351 ReLinker
+2955737:11357 Riegeli
+2967118:9138 SADIE_hrtf_database
+2976291:11358 Safe HTML types for TypeScript
+2987676:11358 SafeParcelable library
+2999059:11357 Setup Compat library
+3010441:11357 Setup Design library
+3021807:1507 Skia
+3023330:53839 SwiftShader
+3077182:11360 TCMalloc
+3088557:13575 TensorFlow
+3102160:11419 TensorFlow Lite Support
+3113588:11358 Tink
+3124955:11357 UDPA
+3136320:731 UTF
+3137063:11358 Unsmear
+3148428:46323 V8
+3194762:11358 Volley
+3206159:1474 Web Tracing Framework C++ Bindings
+3207644:1511 WebRTC
+3209172:1511 WebRTC Audio
+3210693:47018 X.Org
+3257723:1560 XNNPACK
+3259292:12527 Yoga
+3271850:11343 YouTube Android Player API
+3283203:2655 Zippy
+3285872:3879 Zstandard
+3289775:10695 android_annotations
+3300488:11358 android_build
+3311869:11357 android_transcoder
+3323251:11357 apache_commons_codec
+3334619:10695 apksig
+3345334:12521 archive_patcher
+3357884:1481 arcore_feature_extractor
+3359380:11358 astc-codec
+3370759:11358 audio_to_tactile
+3382128:11358 backup
+3393506:16254 basis_universal
+3409770:11358 beans
+3421138:1896 bzip2
+3423045:3269 c-ares
+3426332:11357 cardboard_oss
+3437699:667 cblas
+3438378:11358 cel-cpp
+3449763:1125 checker_framework_util
+3450907:1559 chromium_audio
+3452481:552 class_defs
+3453042:1384 clog
+3454439:11358 compiler
+3465814:1318 cppitertools
+3467149:12876 cpu_features
+3480037:1424 cpuinfo
+3481472:1460 crc32c
+3482941:5868 curl
+3488830:10141 customtabsclient
+3498981:5091 dav1d
+3504095:11357 djinni_support_lib
+3515468:694 esm_vecmath
+3516171:11358 eval
+3527544:1086 filesystem
+3528642:11358 flexbox
+3540011:1408 fmtlib
+3541434:8616 fontconfig
+3550062:11342 fplbase
+3561418:11101 freetype2
+3572528:611 g722
+3573148:429 g771
+3573586:29687 gRPC
+3603287:11358 gRPC Java
+3614661:11358 gRPC Protos
+3626032:11358 gemmlowp
+3637409:10599 geometrystream
+3648021:38636 gfortran
+3686668:1088 giflib
+3687768:54705 glslang
+3742487:29205 googleurl
+3771706:11358 gsfclient
+3783088:11358 gtm_session_fetcher
+3794459:15445 harfbuzz
+3809916:21000 icu_utf
+3830926:1338 immer
+3832277:1052 isac_fft
+3833344:552 jni_helper
+3833908:1606 jquery2
+3835523:1076 json
+3836615:11358 json-simple
+3847994:11356 kotlinx_atomicfu
+3859365:11357 leakcanary
+3870745:16702 legacy_libcxx_sort
+3887459:1614 libSRTP
+3889085:14168 libavif
+3903271:1518 libcircllhist
+3904802:4528 libevent
+3909346:1359 libexecinfo
+3910716:1212 libf2c
+3911943:11358 libfplutil
+3923313:11358 libgav1
+3934689:7174 libjpeg-turbo
+3941875:1800 libnabo
+3943694:10173 libphonenumber
+3953883:1298 libresample
+3955197:1091 libtxc_dxtn
+3956302:2357 libunwind
+3958672:1050 liburing
+3959733:3740 libvpx
+3963485:2905 libwebm
+3966402:51684 libwebp
+4018097:1506 libyuv
+4019613:11357 litho
+4030982:886 lodepng
+4031883:1079 magic_enum
+4032973:11358 mathfu
+4044351:552 metaprogramming
+4044915:1996 minizip
+4046934:11357 mobiledatadownload
+4058304:11416 mobstore
+4069733:1062 mongoose
+4070806:11358 motive
+4082178:12834 mp4parser
+4095026:1555 nanohttpd
+4096594:1662 neon2sse
+4098273:11357 networkstats
+4109642:1156 nghttp2
+4110807:11358 oboe
+4122174:1135 ogre
+4123328:11358 opencl_headers
+4134708:11357 opencl_icd_loader
+4146077:28233 openssh
+4174323:9217 p2putils
+4183553:590 perfetto
+4184153:1919 pffft
+4186099:11358 program_image_remapper
+4197478:11357 prometheus_model
+4208851:1378 pthreadpool
+4210240:11358 public
+4221610:1131 quickjs
+4222757:1081 random_uuid
+4223852:5152 rapidjson
+4229013:1618 re2j
+4230643:1581 rnnoise
+4232238:1102 robin_map
+4233348:11358 ruy
+4244721:11311 rxandroid2
+4256047:11358 rxbinding2
+4267417:11358 rxjava2
+4278787:11358 rxjava3
+4290163:11358 sequence_lock
+4301530:1479 sha3
+4303021:11357 shaderc
+4314390:262 sigslot
+4314663:4066 spdlog
+4318747:1309 spirv_headers
+4320072:11358 spirv_tools
+4331444:11358 splitfile
+4342810:2510 stb
+4345337:11358 swipedismiss
+4356705:1142 tclap
+4357860:11358 testutil
+4369242:11356 text_layout_builder
+4380610:9785 threejs
+4390404:4391 tiff
+4394808:808 tinyxml2
+4395638:1475 tracing_framework
+4397129:1825 tz database
+4398962:1469 upb
+4400446:1091 utf8_range
+4401550:11358 validate
+4412922:1313 vectorial
+4414255:1438 vocabulary_tree
+4415712:11358 vulkan_headers
+4427083:1167 web_ie11
+4428260:10174 wuffs
+4438445:1390 xxhash
+4439848:1061 yaml-cpp
+4440918:2500 zlib
