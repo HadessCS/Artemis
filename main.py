@@ -81,9 +81,8 @@ def show_banner():
     SSS%SS%%SSSSSSSSSSSSSSSSSSSSSSSSSSS;:;++*%?***S?**+*?****************%#SSSS%%%%SSSSSSS%%%S
     %S%%SSS%S%SSSSSSSSSSSSSSSSSSSSSSSS%:;++*%?***%%******???**************SSS%SSSSSSSSSSSSSSSS
     SS%%SSS%%%SSSSSSSSSSSSSSSSSSSSSSS#*;++*%?****S??**********************?#SSSSS%%SSS%SSSS%SS
+    
     1) Read Manifest
-    2) Find IP Address
-    3) Whoise IP
     """
     print(banner)
 
