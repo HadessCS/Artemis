@@ -40,6 +40,10 @@ python main.py
 
 [![asciicast](https://asciinema.org/a/592332.svg)](https://asciinema.org/a/592332)
 
+### IP Whois
+
+[![asciicast](https://asciinema.org/a/592335.svg)](https://asciinema.org/a/592335)
+
 Example Usage:
 
 1.Find infra(domain and ip) in sample4.apk and set output result into out.txt
