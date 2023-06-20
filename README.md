@@ -38,7 +38,7 @@ python main.py
 
 ### Display Manifest
 
-<script async id="asciicast-592332" src="https://asciinema.org/a/592332.js"></script>
+[![asciicast](https://asciinema.org/a/592332.svg)](https://asciinema.org/a/592332)
 
 Example Usage:
 
