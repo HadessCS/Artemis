@@ -51,3 +51,10 @@ Example Usage:
 ```
 python3 main.py --path sample4.apk --infra domain,ip --output out.txt
 ```
+
+
+2. Investigate the Domain and IP on the APK
+
+```
+python3 main.py --path sample.apk --whois ip
+```
