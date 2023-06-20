@@ -115,7 +115,7 @@ def cli_show_banner():
     --path  required path of apk file
     --manifest show manifest informations
     --infra find all infra addresses included ip,domain ex. --infra ip,domain
-    --whoise whoise all infra included ip,domain ex. --whoise ip,domain
+    --whois whois all infra included ip,domain ex. --whois ip,domain
     --output set output files ex. --output out.txt
     """
     print(banner)
@@ -464,7 +464,7 @@ def search_infra_address(directory_path):
 
 
 
-def whoise_infra(directory_path):
+def whois_infra(directory_path):
     try:
         extract_zip(directory_path, 'uncompress')
         directory_path = './uncompress'
@@ -478,7 +478,7 @@ def whoise_infra(directory_path):
                         content = file.read()                        
                         
                         
-                        if ip_whoise_flag:
+                        if ip_whois_flag:
                             ip_addresses = re.findall(r"\b(?:\d{2,3}\.){3}\d{1,3}\b", content)
                             for ip in ip_addresses:
                                 #print(unique_ips)
@@ -488,7 +488,7 @@ def whoise_infra(directory_path):
                                     if output_switch:
                                             append_to_file(output_switch_name, lookup_ip_output)
 
-                        if  domain_whoise_flag:
+                        if  domain_whois_flag:
                             domains = re.findall(r"(?<!\S)((?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,})(?!\S)", content)
                             for domitem in domains:
                                 if is_valid_domain(domitem) and domitem not in unique_domains:
@@ -551,8 +551,8 @@ script_parameters = find_parameters(sys.argv[1:])
 if sys.argv[1:]:
     read_config_file(config_path)
     path = ""
-    ip_whoise_flag = False
-    domain_whoise_flag = False
+    ip_whois_flag = False
+    domain_whois_flag = False
     ip_infra_flag = False
     domain_infra_flag = False
     output_switch = False
@@ -601,36 +601,36 @@ if sys.argv[1:]:
                     search_infra_address(path)
 
 
-    if 'whoise' in script_parameters:
-        if  script_parameters['whoise'] is None:
-            ip_whoise_flag = True
-            domain_whoise_flag = True
+    if 'whois' in script_parameters:
+        if  script_parameters['whois'] is None:
+            ip_whois_flag = True
+            domain_whois_flag = True
             whoise_infra(path)
         else:
-            if ',' in script_parameters['whoise']:
-                whoise_parameters = script_parameters['whoise'].split(",")
-                if whoise_parameters[0] == "ip" or whoise_parameters[1] == "ip":
-                    ip_whoise_flag = True
-                    whoise_infra(path)
-                if whoise_parameters[0] == "domain" or whoise_parameters[1] == "domain":
-                    domain_whoise_flag = True
-                    whoise_infra(path)
+            if ',' in script_parameters['whois']:
+                whois_parameters = script_parameters['whois'].split(",")
+                if whois_parameters[0] == "ip" or whoise_parameters[1] == "ip":
+                    ip_whois_flag = True
+                    whois_infra(path)
+                if whois_parameters[0] == "domain" or whois_parameters[1] == "domain":
+                    domain_whois_flag = True
+                    whois_infra(path)
             else:
-                if script_parameters['whoise'] == "ip":
-                    ip_whoise_flag = True
-                    whoise_infra(path)
-                if script_parameters['whoise'] == "domain":
-                    domain_whoise_flag = True
-                    whoise_infra(path)
+                if script_parameters['whois'] == "ip":
+                    ip_whois_flag = True
+                    whois_infra(path)
+                if script_parameters['whois'] == "domain":
+                    domain_whois_flag = True
+                    whois_infra(path)
 
 
 
         path = script_parameters['path']
 
         # colorize
-        print('whoise')
+        print('whois')
         # please complete this
-        whoise_infra(path)
+        whois_infra(path)
     if 'help' in script_parameters:
         cli_show_banner()
         exit_script()
