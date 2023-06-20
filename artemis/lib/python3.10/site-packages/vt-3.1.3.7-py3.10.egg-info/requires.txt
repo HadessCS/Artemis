@@ -1,0 +1,6 @@
+requests>=2.5.0
+python-dateutil>=1.5
+olefile>=0.42
+texttable
+HTMLParser
+six

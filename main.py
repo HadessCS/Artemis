@@ -16,16 +16,29 @@ from termcolor import colored
 import emoji
 from tqdm import tqdm
 import time
+from shodan import Shodan
+
+import virustotal_python
+from pprint import pprint
+
+
 
 
 # Initialize colorama
 init()
 
+
+# TI Config file
+config = {}
+config_path='./config'
+
+# Get all local environment variables
+env_vars = os.environ
+
+
+
+
 progress_bar_length = 20  # Number of characters in the progress bar
-
-
-
-
 initialize_msg = Fore.YELLOW + Style.DIM + "Initializing ... " + emoji.emojize(":rocket:")
 print(initialize_msg)
 
@@ -90,6 +103,14 @@ def show_banner():
 
 def cli_show_banner():
     banner = """
+                                  _      
+   /\         _              (_)     
+  /  \   ____| |_  ____ ____  _  ___ 
+ / /\ \ / ___)  _)/ _  )    \| |/___)
+| |__| | |   | |_( (/ /| | | | |___ |
+|______|_|    \___)____)_|_|_|_(___/ 
+                                     
+
     --help  show help
     --path  required path of apk file
     --manifest show manifest informations
@@ -111,7 +132,8 @@ def is_valid_ip_address(ip):
     return True
 
 def exit_script():
-    shutil.rmtree('./uncompress')
+    if os.path.exists('./uncompress'):
+        shutil.rmtree('./uncompress')
     exit()
 
 
@@ -183,54 +205,221 @@ def extract_zip(zip_path, extract_path):
 
 
 
-def perform_domain_lookup(domain_name):
-    url = f"https://www.abuse.net/lookup.cgi?domain={domain_name}"
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.text
-        else:
-            print(f"Failed to retrieve abuse information. Status code: {response.status_code}")
-            return None
-    except requests.RequestException as e:
-        print(f"Failed to retrieve abuse information: {e}")
-        return None
+def read_all_environment_variables():
+    env_variables = {}
+    for key, value in os.environ.items():
+        env_variables[key] = value
+    return env_variables
 
 
 
+def read_config_file(file_path):
+    all_env_variables = read_all_environment_variables()
+    if os.path.exists('./config'):
+        with open(file_path, 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line.startswith("shodan="):
+                    config['shodan'] = line.split('=')[1]
+                else:
+                    for key, value in all_env_variables.items():
+                        if key == 'shodan':
+                            config['shodan'] = value
+                            break
 
+                if line.startswith("virustotal="):
+                    config['virustotal'] = line.split('=')[1]
+                else:
+                    for key, value in all_env_variables.items():
+                        if key == 'virustotal':
+                            config['virustotal'] = value
+                            break
+                        
+                if line.startswith("urlscan="):
+                    config['urlscan'] = line.split('=')[1]
+                else:
+                    for key, value in all_env_variables.items():
+                        if key == 'urlscan':
+                            config['urlscan'] = value
+                            break
+                       
+                if line.startswith("criminalip="):
+                    config['criminalip'] = line.split('=')[1]
+                else:
+                    for key, value in all_env_variables.items():
+                        if key == 'criminalip':
+                            config['criminalip'] = value
+                            break
+    else:
+        print(Fore.RED + Style.DIM + 'Config File Nout Found!')
+        for key, value in all_env_variables.items():
+            if key == 'shodan':
+                print(f"The value of {key} is {value}")
+                config['shodan'] = value
+                break
+            if key == 'urlscan':
+                print(f"The value of {key} is {value}")
+                config['urlscan'] = value
+                break
+            if key == 'virustotal':
+                print(f"The value of {key} is {value}")
+                config['virustotal'] = value
+                break
+            if key == 'criminalip':
+                print(f"The value of {key} is {value}")
+                config['criminalip'] = value
+                break
+
+
+
+    
+    return config
+
+
+
+def perform_domain_lookup(domain):
+    print(domain)
+    perform_domain_lookup_output = ""
+
+    data = {
+        # Your JSON data here
+    }
+
+    if config['urlscan']:
+        try:
+            print("[-]Urlscan:")
+            api_url = f"https://urlscan.io/api/v1/search/?q=domain:{domain}"
+            response = requests.get(api_url)
+
+            if response.status_code == 200:
+                result = response.json()
+                if result['total'] > 0:
+                    print(Fore.GREEN + Style.DIM + '[*]Title: ' + result['results'][0]['page']['title'])
+                    print(Fore.GREEN + Style.DIM + '[*]Server: ' + result['results'][0]['page']['server'])
+                    print(Fore.GREEN + Style.DIM + '[*]IP: ' + result['results'][0]['page']['ip'])
+                    print(Fore.GREEN + Style.DIM + '[*]ASN: ' + result['results'][0]['page']['asn'])
+                    print(Fore.GREEN + Style.DIM + '[*]ASN Name: ' + result['results'][0]['page']['asnname'])
+                    perform_domain_lookup_output = perform_domain_lookup_output + result['results'][0]
+                else:
+                    print("No WHOIS information found for domain: {domain}")
+        except Exception as e:
+            pass
+            #print("An error occurred: {str(e)}")
+    if config['shodan']:
+        try:
+            print("[-]Shodan:\n")
+            api = Shodan(config['shodan'])
+            data=api.dns.domain_info(domain=domain, history=False, type=None, page=1)
+
+            # Convert the data to a formatted JSON string
+            formatted_json = json.dumps(data, indent=4)
+
+            # Print the formatted JSON
+            print(Fore.GREEN + Style.DIM + formatted_json)
+
+            #results = api.host(domain)
+            #print(results)
+            perform_domain_lookup_output = perform_domain_lookup_output + str(data)
+            
+        except shodan.APIError as e:
+            print("Error: {e}")
+
+    if config['virustotal']:
+        try:
+            print("[-]VirusTotal:\n")
+            with virustotal_python.Virustotal(config['virustotal']) as vtotal:
+                resp = vtotal.request(f"domains/{domain}")
+                # Convert the data to a formatted JSON string
+                formatted_json = json.dumps(resp.data, indent=4)
+
+                # Print the formatted JSON
+                print(Fore.GREEN + Style.DIM + formatted_json)
+
+            perform_domain_lookup_output = perform_domain_lookup_output + resp.data
+
+        except vt.APIError as e:
+            pass
+            # print(f"Error: {e}")
+
+    return perform_domain_lookup_output
 
 
 
 def perform_ip_lookup(ip):
+    perform_ip_lookup_output = ""
+    data = {
+        # Your JSON data here
+    }
     try:
+        print("[-]Manual Method:")
+
         ip_info = IPWhois(ip)
         result = ip_info.lookup_rdap()
-        print(f"WHOIS information for IP: {ip}")
-        print("Organization:", result['asn_description'])
-        print("Country:", result['asn_country_code'])
-        print("City:", result['city'])
-        print("Latitude:", result['latitude'])
-        print("Longitude:", result['longitude'])
-        print("ASN:", result['asn'])
+
+        # Convert the data to a formatted JSON string
+        formatted_json = json.dumps(result, indent=4)
+
+        # Print the formatted JSON
+        print(formatted_json)
+
+        print(f"[*]WHOIS information for IP: {ip}")
+        print("[*]Organization: ", result['asn_description'])
+        print("[*]Country: ", result['asn_country_code'])
         print("--------------------")
-        print(result)
+        perform_ip_lookup_output = perform_ip_lookup_output + str(result)
+        if False:
+            try:
+                print("[-]Shodan:\n")
+                api = Shodan(config['shodan'])
+                data=api.host(ip)
+
+                # Convert the data to a formatted JSON string
+                formatted_json = json.dumps(data, indent=4)
+
+                # Print the formatted JSON
+                print(Fore.GREEN + Style.DIM + formatted_json)
+
+                #results = api.host(domain)
+                #print(results)
+                perform_ip_lookup_output = perform_ip_lookup_output + data    
+                
+            except shodan.APIError as e:
+                print("Error: {e}")
+        if config['criminalip']:
+            print("[-]CriminalIP:\n")
+            url = "https://api.criminalip.io/v1/ip/data?ip="+ip+"&full=true"
+            payload={}
+            headers = {
+              "x-api-key": config['criminalip']
+            }
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            # Convert the data to a formatted JSON string
+            formatted_json = json.dumps(response.text, indent=4)
+
+            # Print the formatted JSON
+            print(Fore.GREEN + Style.DIM + formatted_json)
+
+
+            perform_ip_lookup_output = perform_ip_lookup_output + str(response.text)
+
+
+
+                            
+
+
+    
     except whois.parser.PywhoisError as e:
         pass
 
+    return perform_ip_lookup_output
 
 
 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
 
+                                    
+   
 
 
 def search_infra_address(directory_path):
@@ -303,7 +492,6 @@ def whoise_infra(directory_path):
                             domains = re.findall(r"(?<!\S)((?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,})(?!\S)", content)
                             for domitem in domains:
                                 if is_valid_domain(domitem) and domitem not in unique_domains:
-                                    print(domitem)
                                     unique_domains.add(domitem)
                                     lookup_domain_output=perform_domain_lookup(domitem)
                                     if output_switch:
@@ -361,6 +549,7 @@ def find_parameters(script_args):
 script_parameters = find_parameters(sys.argv[1:])
 
 if sys.argv[1:]:
+    read_config_file(config_path)
     path = ""
     ip_whoise_flag = False
     domain_whoise_flag = False
