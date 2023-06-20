@@ -34,6 +34,12 @@ python main.py
 	 
 ```
 
+## Usage
+
+### Display Manifest
+
+<script async id="asciicast-592332" src="https://asciinema.org/a/592332.js"></script>
+
 Example Usage:
 
 1.Find infra(domain and ip) in sample4.apk and set output result into out.txt
